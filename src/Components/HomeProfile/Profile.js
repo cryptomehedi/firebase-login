@@ -6,8 +6,8 @@ const Profile = () => {
     const [user] = useAuthState(auth)
     return (
         <div>
-            <h2>Name: {user?.displayName}</h2>
-            <h4>Email: {user?.email}</h4>
+            <h2>Your Name: {user?.displayName}</h2>
+            <h4>Your Email: {user?.email}</h4>
         </div>
     );
 };

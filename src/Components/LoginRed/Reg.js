@@ -4,6 +4,7 @@ import auth from '../../firebase.init';
 import { toast } from 'react-toastify';
 import Spinner from '../Shared/Spinner';
 import { useNavigate, useLocation, Link } from 'react-router-dom';
+import SocialLogin from './SocialLogin';
 
 const Reg = () => {
     const [ createUserWithEmailAndPassword, user, loading, error] = useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
@@ -66,7 +67,7 @@ const Reg = () => {
     console.log(check);
     return (
         <div className="flex justify-center mt-10">
-            <div className='w-96'>
+            <div className='md:w-96'>
                 <h2 className='text-2xl text-center text-green-400 font-bold'>Registration</h2>
                 <form className='mt-3' onSubmit={handleSubmit}>
                     <div>
@@ -98,6 +99,7 @@ const Reg = () => {
                     {loading && <div className="mt-2"><Spinner text="Please Wait For Registration Process...."/></div>}
                 </form>
                 <h3 className='mt-3'>Already Registered! Please <Link className='text-green-400' to="/Login"> Login Here</Link></h3>
+                <SocialLogin/>
             </div>
         </div>
     );
