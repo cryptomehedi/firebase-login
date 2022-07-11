@@ -5,17 +5,16 @@ import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
 
 const Nav = () => {
-    const [user] = useAuthState(auth)
-    const margine = {marginLeft: '10px'}
+    const [user] = useAuthState(auth) 
     return (
-        <div>
-            <Link style={margine} to='/'>Home</Link>
-            <Link style={margine} to='/profile'>Profile</Link>
+        <div className='flex justify-center mt-2'>
+            <Link className='mx-2 p-2 duration-150 hover:bg-green-400 rounded-xl hover:text-white' to='/'>Home</Link>
+            <Link className='mx-2 p-2 duration-150 hover:bg-green-400 rounded-xl hover:text-white' to='/profile'>Profile</Link>
             
             {
-                user ? <button style={margine} onClick={() =>signOut(auth)}>sign out</button> : <>
-                    <Link style={margine} to='/reg'>Reg</Link>
-                    <Link style={margine} to='/login'>Login</Link>
+                user ? <button className='mx-2 p-2  rounded-xl bg-gradient-to-r from-slate-400 to-red-300 hover:text-white duration-150 hover:from-red-300 hover:to-red-600' onClick={() =>signOut(auth)}>sign out</button> : <>
+                    <Link className='mx-2 p-2 duration-150 hover:bg-green-400 rounded-xl hover:text-white' to='/reg'>Reg</Link>
+                    <Link className='mx-2 p-2 duration-150 hover:bg-green-400 rounded-xl hover:text-white' to='/login'>Login</Link>
                 </>
             }
             
