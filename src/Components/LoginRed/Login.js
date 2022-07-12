@@ -22,7 +22,6 @@ const Login = () => {
         e.preventDefault()
         const email = e.target.email.value
         const password = e.target.password.value
-        console.log(password.length);
         setEmailErr('')
         setPassErr('')
         if(email.length < 1){

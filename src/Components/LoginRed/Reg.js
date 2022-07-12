@@ -60,11 +60,13 @@ const Reg = () => {
     if(error?.message?.length > 4){
         toast.error(`${error.message.slice(22,error.message.length -2)}`)
     }
+    if(error1?.message?.length > 4){
+        toast.error(`${error1.message.slice(22,error1.message.length -2)}`)
+    }
     if(user){
         toast.success(`welcome ${user.user.displayName}`)
         navigate(from, { replace: true })
-    }
-    console.log(check);
+    } 
     return (
         <div className="flex justify-center mt-10">
             <div className='md:w-96'>
@@ -97,6 +99,7 @@ const Reg = () => {
                     </div>
                     <input disabled={!check} className={!check ? 'bg-transparent text-black border-2 cursor-not-allowed hover:bg-gray-400 px-5 py-2 text-sm leading-5 rounded-full font-semibold duration-200 mt-3' : 'bg-transparent text-black border-2 hover:bg-green-400 focus:outline-none focus:ring focus:ring-blue-300 active:bg-green-700 px-5 py-2 text-sm leading-5 rounded-full font-semibold hover:text-white cursor-pointer duration-200 mt-3'} type="submit" value="Sign Up" />
                     {loading && <div className="mt-2"><Spinner text="Please Wait For Registration Process...."/></div>}
+                    {updating && <div className="mt-2"><Spinner text="Please Wait For Registration Process...."/></div>}
                 </form>
                 <h3 className='mt-3'>Already Registered! Please <Link className='text-green-400' to="/Login"> Login Here</Link></h3>
                 <SocialLogin/>
